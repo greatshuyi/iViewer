@@ -40,6 +40,9 @@ class Camera(object):
         self.width = width
         self.height = height
         
+    def rectify(self):
+        pass
+        
     def compute_right_camera_pose(self, pose):
         pos = pose * np.array([self.baseline, 0, 0])
         return g2o.Isometry3d(pose.orientation(), pos)
