@@ -40,6 +40,9 @@ class Camera(object):
         self.width = width
         self.height = height
         
+        # TODO
+        self.projection = None
+        
     def rectify(self):
         pass
         
@@ -63,13 +66,20 @@ class Camera(object):
         # 主点坐标
         self.cx = cx
         self.cy = cy
-
+        
         # 逆变参数
         self.invfx = invfx
         self.invfy = invfy
+        
+        self.intrinsic = np.array([
+            [fx, 0, cx], 
+            [0, fy, cy], 
+            [0, 0, 1]])
 
         # 外参, np.arry
         self.extrinsic = extrinsic
+        
+        self.projection = None
 
         self.width = width
         self.height = height
